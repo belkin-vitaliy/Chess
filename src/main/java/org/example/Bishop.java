@@ -7,6 +7,7 @@ public class Bishop extends ChessPiece {
 
     /**
      * Конструктор принимает цвет фигуры
+     *
      * @param color цвет фигуры
      */
     public Bishop(String color) {
@@ -15,6 +16,7 @@ public class Bishop extends ChessPiece {
 
     /**
      * Метод getColor возвращает цвет фигуры
+     *
      * @return цвет фигуры
      */
     @Override
@@ -24,11 +26,12 @@ public class Bishop extends ChessPiece {
 
     /**
      * Метод canMoveToPosition проверяет, может ли слон ходить в заданную позицию
+     *
      * @param chessBoard Шахматная доска
-     * @param line строка
-     * @param column столбец
-     * @param toLine на строку
-     * @param toColumn на столбец
+     * @param line       строка
+     * @param column     столбец
+     * @param toLine     на строку
+     * @param toColumn   на столбец
      * @return может ли слон ходить в заданную позицию
      */
     @Override
@@ -71,6 +74,7 @@ public class Bishop extends ChessPiece {
 
     /**
      * Метод возвращает символ фигуры
+     *
      * @return символ фигуры
      */
     @Override
@@ -80,7 +84,8 @@ public class Bishop extends ChessPiece {
 
     /**
      * Вспомогательный метод для проверки, что позиция находится на доске
-     * @param line строка
+     *
+     * @param line   строка
      * @param column столбец
      * @return позиция находится на доске
      */

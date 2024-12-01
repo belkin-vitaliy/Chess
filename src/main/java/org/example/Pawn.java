@@ -7,6 +7,7 @@ public class Pawn extends ChessPiece {
 
     /**
      * Конструктор принимает цвет фигуры
+     *
      * @param color цвет фигуры
      */
     public Pawn(String color) {
@@ -15,6 +16,7 @@ public class Pawn extends ChessPiece {
 
     /**
      * Метод getColor возвращает цвет фигуры
+     *
      * @return цвет фигуры
      */
     @Override
@@ -24,11 +26,12 @@ public class Pawn extends ChessPiece {
 
     /**
      * Метод canMoveToPosition проверяет, может ли пешка ходить в заданную позицию
+     *
      * @param chessBoard Шахматная доска
-     * @param line строка
-     * @param column столбец
-     * @param toLine на строка
-     * @param toColumn на столбец
+     * @param line       строка
+     * @param column     столбец
+     * @param toLine     на строка
+     * @param toColumn   на столбец
      * @return может ли пешка ходить в заданную позицию
      */
     @Override
@@ -68,6 +71,7 @@ public class Pawn extends ChessPiece {
 
     /**
      * Метод возвращает символ фигуры
+     *
      * @return Символ пешки
      */
     @Override
@@ -77,7 +81,8 @@ public class Pawn extends ChessPiece {
 
     /**
      * Вспомогательный метод для проверки, что позиция находится на доске
-     * @param line строка
+     *
+     * @param line   строка
      * @param column столбец
      * @return проверка, что позиция находится на доске
      */

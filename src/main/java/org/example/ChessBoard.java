@@ -17,6 +17,7 @@ public class ChessBoard {
 
     /**
      * Метод moveToPosition  ходить в заданную позицию
+     *
      * @param startLine
      * @param startColumn
      * @param endLine
@@ -45,6 +46,7 @@ public class ChessBoard {
 
     /**
      * рокировка по 0 столбцу
+     *
      * @return выполнена
      */
     public boolean castling0() {
@@ -87,6 +89,7 @@ public class ChessBoard {
 
     /**
      * рокировка по 7 столбцу
+     *
      * @return выполнена
      */
     public boolean castling7() {

@@ -7,6 +7,7 @@ public class Queen extends ChessPiece {
 
     /**
      * Конструктор принимает цвет фигуры
+     *
      * @param color цвет фигуры
      */
     public Queen(String color) {
@@ -15,6 +16,7 @@ public class Queen extends ChessPiece {
 
     /**
      * Метод getColor возвращает цвет фигуры
+     *
      * @return цвет фигуры
      */
     @Override
@@ -24,11 +26,12 @@ public class Queen extends ChessPiece {
 
     /**
      * Метод canMoveToPosition проверяет, может ли ферзь ходить в заданную позицию
+     *
      * @param chessBoard Шахматная доска
-     * @param line строка
-     * @param column столбец
-     * @param toLine на строка
-     * @param toColumn на столбец
+     * @param line       строка
+     * @param column     столбец
+     * @param toLine     на строка
+     * @param toColumn   на столбец
      * @return может ли ферзь ходить в заданную позицию
      */
     @Override
@@ -53,11 +56,12 @@ public class Queen extends ChessPiece {
 
     /**
      * Проверяет, что путь свободен
+     *
      * @param chessBoard шахматная доска
-     * @param line строка
-     * @param column столбец
-     * @param toLine на строку
-     * @param toColumn на столбец
+     * @param line       строка
+     * @param column     столбец
+     * @param toLine     на строку
+     * @param toColumn   на столбец
      * @return путь свободен
      */
     private boolean isPathClear(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
@@ -85,6 +89,7 @@ public class Queen extends ChessPiece {
 
     /**
      * Метод возвращает символ фигуры
+     *
      * @return символ фигуры
      */
     @Override
@@ -94,9 +99,10 @@ public class Queen extends ChessPiece {
 
     /**
      * Проверяет, что позиция на доске
-     * @param line строка
+     *
+     * @param line   строка
      * @param column столбец
-     * @return  позиция на доске
+     * @return позиция на доске
      */
     private boolean isValidPosition(int line, int column) {
         return line >= 0 && line < 8 && column >= 0 && column < 8;

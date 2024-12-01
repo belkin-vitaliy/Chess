@@ -7,6 +7,7 @@ public class King extends ChessPiece {
 
     /**
      * Конструктор принимает цвет фигуры
+     *
      * @param color цвет фигуры
      */
     public King(String color) {
@@ -15,6 +16,7 @@ public class King extends ChessPiece {
 
     /**
      * Метод getColor возвращает цвет фигуры
+     *
      * @return цвет фигуры
      */
     @Override
@@ -24,11 +26,12 @@ public class King extends ChessPiece {
 
     /**
      * Метод canMoveToPosition проверяет, может ли король ходить в заданную позицию
+     *
      * @param chessBoard Шахматная доска
-     * @param line строка
-     * @param column столбец
-     * @param toLine на строка
-     * @param toColumn на столбец
+     * @param line       строка
+     * @param column     столбец
+     * @param toLine     на строка
+     * @param toColumn   на столбец
      * @return возможность ходить в заданную позицию
      */
     @Override
@@ -55,6 +58,7 @@ public class King extends ChessPiece {
 
     /**
      * Метод возвращает символ фигуры
+     *
      * @return Символ короля
      */
     @Override
@@ -64,9 +68,10 @@ public class King extends ChessPiece {
 
     /**
      * Проверяет, находится ли клетка под атакой
+     *
      * @param chessBoard шахматная достка
-     * @param line строка
-     * @param column столбец
+     * @param line       строка
+     * @param column     столбец
      * @return находится ли клетка под атакой
      */
     public boolean isUnderAttack(ChessBoard chessBoard, int line, int column) {
@@ -87,7 +92,8 @@ public class King extends ChessPiece {
 
     /**
      * Проверяет, что позиция на доске
-     * @param line СТРОКА
+     *
+     * @param line   СТРОКА
      * @param column столбец
      * @return валидность позиций на доске
      */

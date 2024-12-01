@@ -3,9 +3,10 @@ package org.example;
 /**
  * Конь
  */
-public class Horse extends ChessPiece{
+public class Horse extends ChessPiece {
     /**
      * Конструктор принимает цвет фигуры
+     *
      * @param color цвет фигуры
      */
     public Horse(String color) {
@@ -14,6 +15,7 @@ public class Horse extends ChessPiece{
 
     /**
      * Метод getColor возвращает цвет фигуры
+     *
      * @return цвет фигуры
      */
     @Override
@@ -23,11 +25,12 @@ public class Horse extends ChessPiece{
 
     /**
      * Метод canMoveToPosition проверяет, может ли конь ходить в заданную позицию
+     *
      * @param chessBoard Шахматная доска
-     * @param line строка
-     * @param column толбец
-     * @param toLine на строку
-     * @param toColumn на столбец
+     * @param line       строка
+     * @param column     толбец
+     * @param toLine     на строку
+     * @param toColumn   на столбец
      * @return возможность ходить в заданную позицию
      */
     @Override
@@ -54,6 +57,7 @@ public class Horse extends ChessPiece{
 
     /**
      * Метод возвращает символ фигуры
+     *
      * @return символ фигуры
      */
     @Override
@@ -63,6 +67,7 @@ public class Horse extends ChessPiece{
 
     /**
      * Вспомогательный метод для проверки, что позиция находится на доске
+     *
      * @param line
      * @param column
      * @return
