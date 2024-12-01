@@ -32,16 +32,16 @@ public abstract class ChessPiece {
      * Абстрактный метод для проверки возможности хода фигуры
      * @param chessBoard Шахматная доска
      * @param line строка
-     * @param column толбец
-     * @param toLine
-     * @param toColumn
-     * @return
+     * @param column столбец
+     * @param toLine на строка
+     * @param toColumn на столбец
+     * @return возможности хода фигуры
      */
     public abstract boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn);
 
     /**
      * Абстрактный метод для получения символа фигуры
-     * @return
+     * @return символ фигуры
      */
     public abstract String getSymbol();
 }

@@ -5,18 +5,32 @@ package org.example;
  */
 public class King extends ChessPiece {
 
-    // Конструктор принимает цвет фигуры
+    /**
+     * Конструктор принимает цвет фигуры
+     * @param color цвет фигуры
+     */
     public King(String color) {
         super(color);
     }
 
-    // Метод getColor возвращает цвет фигуры
+    /**
+     * Метод getColor возвращает цвет фигуры
+     * @return цвет фигуры
+     */
     @Override
     public String getColor() {
         return this.color;
     }
 
-    // Метод canMoveToPosition проверяет, может ли король ходить в заданную позицию
+    /**
+     * Метод canMoveToPosition проверяет, может ли король ходить в заданную позицию
+     * @param chessBoard Шахматная доска
+     * @param line строка
+     * @param column столбец
+     * @param toLine на строка
+     * @param toColumn на столбец
+     * @return возможность ходить в заданную позицию
+     */
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (!isValidPosition(line, column) || !isValidPosition(toLine, toColumn)) {
@@ -39,13 +53,22 @@ public class King extends ChessPiece {
     }
 
 
-    // Метод возвращает символ фигуры
+    /**
+     * Метод возвращает символ фигуры
+     * @return Символ короля
+     */
     @Override
     public String getSymbol() {
         return "K"; // Символ короля
     }
 
-    // Проверяет, находится ли клетка под атакой
+    /**
+     * Проверяет, находится ли клетка под атакой
+     * @param chessBoard шахматная достка
+     * @param line строка
+     * @param column столбец
+     * @return находится ли клетка под атакой
+     */
     public boolean isUnderAttack(ChessBoard chessBoard, int line, int column) {
         // Перебираем все клетки на доске
         for (int i = 0; i < 8; i++) {
@@ -62,7 +85,12 @@ public class King extends ChessPiece {
         return false; // Поле не под атакой
     }
 
-    // Проверяет, что позиция на доске
+    /**
+     * Проверяет, что позиция на доске
+     * @param line СТРОКА
+     * @param column столбец
+     * @return валидность позиций на доске
+     */
     private boolean isValidPosition(int line, int column) {
         return line >= 0 && line < 8 && column >= 0 && column < 8;
     }

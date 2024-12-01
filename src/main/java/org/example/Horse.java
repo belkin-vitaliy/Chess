@@ -1,9 +1,12 @@
 package org.example;
 
+/**
+ * Конь
+ */
 public class Horse extends ChessPiece{
     /**
      * Конструктор принимает цвет фигуры
-     * @param color
+     * @param color цвет фигуры
      */
     public Horse(String color) {
         super(color);
@@ -11,7 +14,7 @@ public class Horse extends ChessPiece{
 
     /**
      * Метод getColor возвращает цвет фигуры
-     * @return
+     * @return цвет фигуры
      */
     @Override
     public String getColor() {
@@ -23,9 +26,9 @@ public class Horse extends ChessPiece{
      * @param chessBoard Шахматная доска
      * @param line строка
      * @param column толбец
-     * @param toLine
-     * @param toColumn
-     * @return
+     * @param toLine на строку
+     * @param toColumn на столбец
+     * @return возможность ходить в заданную позицию
      */
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
@@ -51,7 +54,7 @@ public class Horse extends ChessPiece{
 
     /**
      * Метод возвращает символ фигуры
-     * @return
+     * @return символ фигуры
      */
     @Override
     public String getSymbol() {

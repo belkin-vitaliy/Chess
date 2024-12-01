@@ -15,6 +15,14 @@ public class ChessBoard {
         return this.nowPlayer;
     }
 
+    /**
+     * Метод moveToPosition  ходить в заданную позицию
+     * @param startLine
+     * @param startColumn
+     * @param endLine
+     * @param endColumn
+     * @return можно ходить в заданную позицию
+     */
     public boolean moveToPosition(int startLine, int startColumn, int endLine, int endColumn) {
         if (checkPos(startLine) && checkPos(startColumn)) {
 
@@ -37,7 +45,7 @@ public class ChessBoard {
 
     /**
      * рокировка по 0 столбцу
-     * @return
+     * @return выполнена
      */
     public boolean castling0() {
         int line = nowPlayer.equals("White") ? 0 : 7; // Ряд короля для белых и черных
@@ -79,7 +87,7 @@ public class ChessBoard {
 
     /**
      * рокировка по 7 столбцу
-     * @return
+     * @return выполнена
      */
     public boolean castling7() {
         int line = nowPlayer.equals("White") ? 0 : 7; // Ряд короля для белых и черных

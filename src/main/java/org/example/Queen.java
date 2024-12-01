@@ -5,18 +5,32 @@ package org.example;
  */
 public class Queen extends ChessPiece {
 
-    // Конструктор принимает цвет фигуры
+    /**
+     * Конструктор принимает цвет фигуры
+     * @param color цвет фигуры
+     */
     public Queen(String color) {
         super(color);
     }
 
-    // Метод getColor возвращает цвет фигуры
+    /**
+     * Метод getColor возвращает цвет фигуры
+     * @return цвет фигуры
+     */
     @Override
     public String getColor() {
         return this.color;
     }
 
-    // Метод canMoveToPosition проверяет, может ли ферзь ходить в заданную позицию
+    /**
+     * Метод canMoveToPosition проверяет, может ли ферзь ходить в заданную позицию
+     * @param chessBoard Шахматная доска
+     * @param line строка
+     * @param column столбец
+     * @param toLine на строка
+     * @param toColumn на столбец
+     * @return может ли ферзь ходить в заданную позицию
+     */
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (!isValidPosition(line, column) || !isValidPosition(toLine, toColumn)) {
@@ -39,12 +53,12 @@ public class Queen extends ChessPiece {
 
     /**
      * Проверяет, что путь свободен
-     * @param chessBoard
-     * @param line
-     * @param column
-     * @param toLine
-     * @param toColumn
-     * @return
+     * @param chessBoard шахматная доска
+     * @param line строка
+     * @param column столбец
+     * @param toLine на строку
+     * @param toColumn на столбец
+     * @return путь свободен
      */
     private boolean isPathClear(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         int stepLine = Integer.compare(toLine, line);
@@ -69,13 +83,21 @@ public class Queen extends ChessPiece {
     }
 
 
-    // Метод возвращает символ фигуры
+    /**
+     * Метод возвращает символ фигуры
+     * @return символ фигуры
+     */
     @Override
     public String getSymbol() {
         return "Q"; // Символ ферзя
     }
 
-    // Проверяет, что позиция на доске
+    /**
+     * Проверяет, что позиция на доске
+     * @param line строка
+     * @param column столбец
+     * @return  позиция на доске
+     */
     private boolean isValidPosition(int line, int column) {
         return line >= 0 && line < 8 && column >= 0 && column < 8;
     }

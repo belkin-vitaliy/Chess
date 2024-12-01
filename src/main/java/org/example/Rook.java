@@ -5,18 +5,32 @@ package org.example;
  */
 public class Rook extends ChessPiece {
 
-    // Конструктор принимает цвет фигуры
+    /**
+     * Конструктор принимает цвет фигуры
+     * @param color  цвет фигуры
+     */
     public Rook(String color) {
         super(color);
     }
 
-    // Метод getColor возвращает цвет фигуры
+    /**
+     * Метод getColor возвращает цвет фигуры
+     * @return цвет фигуры
+     */
     @Override
     public String getColor() {
         return this.color;
     }
 
-    // Метод canMoveToPosition проверяет, может ли ладья ходить в заданную позицию
+    /**
+     * Метод canMoveToPosition проверяет, может ли ладья ходить в заданную позицию
+     * @param chessBoard Шахматная доска
+     * @param line строка
+     * @param column столбец
+     * @param toLine на строка
+     * @param toColumn на столбец
+     * @return может ли ладья ходить в заданную позицию
+     */
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (!isValidPosition(line, column) || !isValidPosition(toLine, toColumn)) {
@@ -53,13 +67,21 @@ public class Rook extends ChessPiece {
     }
 
 
-    // Метод возвращает символ фигуры
+    /**
+     * Метод возвращает символ фигуры
+     * @return символ фигуры
+     */
     @Override
     public String getSymbol() {
         return "R"; // Символ ладьи
     }
 
-    // Вспомогательный метод для проверки, что позиция находится на доске
+    /**
+     * Вспомогательный метод для проверки, что позиция находится на доске
+     * @param line строка
+     * @param column столбец
+     * @return роверки, что позиция находится на доске
+     */
     private boolean isValidPosition(int line, int column) {
         return line >= 0 && line < 8 && column >= 0 && column < 8;
     }
