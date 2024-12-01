@@ -16,30 +16,30 @@ public class Bishop extends ChessPiece {
     // Метод canMoveToPosition проверяет, может ли слон ходить в заданную позицию
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Проверяем, что начальная и конечная позиции находятся на доске
         if (!isValidPosition(line, column) || !isValidPosition(toLine, toColumn)) {
             return false;
         }
 
-        // Слон не может оставаться на том же месте
         if (line == toLine && column == toColumn) {
             return false;
         }
 
-        // Проверяем, что ход диагональный
         int deltaLine = Math.abs(line - toLine);
         int deltaColumn = Math.abs(column - toColumn);
         if (deltaLine != deltaColumn) {
             return false; // Не диагональный ход
         }
 
-        // Проверяем, что путь между начальной и конечной точками свободен
-        int stepLine = (toLine - line) > 0 ? 1 : -1; // Направление движения по строкам
-        int stepColumn = (toColumn - column) > 0 ? 1 : -1; // Направление движения по столбцам
+        int stepLine = (toLine - line) > 0 ? 1 : -1;
+        int stepColumn = (toColumn - column) > 0 ? 1 : -1;
 
         int currentLine = line + stepLine;
         int currentColumn = column + stepColumn;
-        while (currentLine != toLine && currentColumn != toColumn) {
+
+        while (currentLine != toLine || currentColumn != toColumn) {
+            if (currentLine == toLine && currentColumn == toColumn) {
+                break; // Конечная клетка может быть занята фигурой другого цвета
+            }
             if (chessBoard.board[currentLine][currentColumn] != null) {
                 return false; // Путь заблокирован
             }
@@ -47,8 +47,10 @@ public class Bishop extends ChessPiece {
             currentColumn += stepColumn;
         }
 
-        return true; // Все проверки пройдены, ход возможен
+        ChessPiece target = chessBoard.board[toLine][toColumn];
+        return target == null || !target.getColor().equals(this.color);
     }
+
 
     // Метод возвращает символ фигуры
     @Override

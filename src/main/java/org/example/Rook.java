@@ -19,40 +19,39 @@ public class Rook extends ChessPiece {
     // Метод canMoveToPosition проверяет, может ли ладья ходить в заданную позицию
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Проверяем, что начальная и конечная позиции находятся на доске
         if (!isValidPosition(line, column) || !isValidPosition(toLine, toColumn)) {
             return false;
         }
 
-        // Ладья не может оставаться на том же месте
         if (line == toLine && column == toColumn) {
             return false;
         }
 
-        // Ладья может ходить только по прямой линии
         if (line != toLine && column != toColumn) {
-            return false;
+            return false; // Не прямой ход
         }
 
-        // Проверяем, что путь между начальной и конечной точками свободен
-        if (line == toLine) { // Горизонтальный ход
-            int step = (toColumn - column) > 0 ? 1 : -1;
-            for (int currentColumn = column + step; currentColumn != toColumn; currentColumn += step) {
-                if (chessBoard.board[line][currentColumn] != null) {
-                    return false; // Путь заблокирован
-                }
+        int stepLine = (toLine - line) == 0 ? 0 : (toLine - line) > 0 ? 1 : -1;
+        int stepColumn = (toColumn - column) == 0 ? 0 : (toColumn - column) > 0 ? 1 : -1;
+
+        int currentLine = line + stepLine;
+        int currentColumn = column + stepColumn;
+
+        while (currentLine != toLine || currentColumn != toColumn) {
+            if (currentLine == toLine && currentColumn == toColumn) {
+                break;
             }
-        } else { // Вертикальный ход
-            int step = (toLine - line) > 0 ? 1 : -1;
-            for (int currentLine = line + step; currentLine != toLine; currentLine += step) {
-                if (chessBoard.board[currentLine][column] != null) {
-                    return false; // Путь заблокирован
-                }
+            if (chessBoard.board[currentLine][currentColumn] != null) {
+                return false; // Путь заблокирован
             }
+            currentLine += stepLine;
+            currentColumn += stepColumn;
         }
 
-        return true; // Все проверки пройдены, ход возможен
+        ChessPiece target = chessBoard.board[toLine][toColumn];
+        return target == null || !target.getColor().equals(this.color);
     }
+
 
     // Метод возвращает символ фигуры
     @Override

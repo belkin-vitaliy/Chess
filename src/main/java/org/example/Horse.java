@@ -29,25 +29,25 @@ public class Horse extends ChessPiece{
      */
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Проверяем, что начальная и конечная позиции находятся на доске
         if (!isValidPosition(line, column) || !isValidPosition(toLine, toColumn)) {
             return false;
         }
 
-        // Конь не может оставаться на том же месте
         if (line == toLine && column == toColumn) {
             return false;
         }
 
-        // Проверяем ход буквой "Г"
         int deltaLine = Math.abs(line - toLine);
         int deltaColumn = Math.abs(column - toColumn);
+
         if ((deltaLine == 2 && deltaColumn == 1) || (deltaLine == 1 && deltaColumn == 2)) {
-            return true;
+            ChessPiece target = chessBoard.board[toLine][toColumn];
+            return target == null || !target.getColor().equals(this.color); // Клетка пустая или на ней фигура другого цвета
         }
 
         return false;
     }
+
 
     /**
      * Метод возвращает символ фигуры

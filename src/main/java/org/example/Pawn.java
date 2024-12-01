@@ -19,33 +19,38 @@ public class Pawn extends ChessPiece {
     // Метод canMoveToPosition проверяет, может ли пешка ходить в заданную позицию
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Проверяем, что начальная и конечная позиции находятся на доске
         if (!isValidPosition(line, column) || !isValidPosition(toLine, toColumn)) {
             return false;
         }
 
-        // Пешка не может оставаться на том же месте
         if (line == toLine && column == toColumn) {
             return false;
         }
 
-        // Пешка может ходить только вперед
-        int direction = this.color.equals("White") ? 1 : -1; // Направление хода
-        int startLine = this.color.equals("White") ? 1 : 6; // Начальная линия для первого хода
+        int direction = this.color.equals("White") ? 1 : -1;
+        int startLine = this.color.equals("White") ? 1 : 6;
 
-        // Проверяем движение на 1 клетку вперед
-        if (toColumn == column && toLine == line + direction) {
-            return chessBoard.board[toLine][toColumn] == null; // Клетка должна быть пустой
+        if (toColumn == column) {
+            // Ход вперед на 1 клетку
+            if (toLine == line + direction && chessBoard.board[toLine][toColumn] == null) {
+                return true;
+            }
+
+            // Первый ход на 2 клетки вперед
+            if (line == startLine && toLine == line + 2 * direction && chessBoard.board[line + direction][column] == null && chessBoard.board[toLine][toColumn] == null) {
+                return true;
+            }
         }
 
-        // Проверяем первый ход на 2 клетки вперед
-        if (line == startLine && toColumn == column && toLine == line + 2 * direction) {
-            return chessBoard.board[line + direction][column] == null && chessBoard.board[toLine][toColumn] == null;
+        // Съедание фигуры по диагонали
+        if (Math.abs(toColumn - column) == 1 && toLine == line + direction) {
+            ChessPiece target = chessBoard.board[toLine][toColumn];
+            return target != null && !target.getColor().equals(this.color);
         }
 
-        // Пешка не может ходить в других направлениях
         return false;
     }
+
 
     // Метод возвращает символ фигуры
     @Override

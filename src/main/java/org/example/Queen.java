@@ -19,34 +19,33 @@ public class Queen extends ChessPiece {
     // Метод canMoveToPosition проверяет, может ли ферзь ходить в заданную позицию
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Проверяем валидность позиций
         if (!isValidPosition(line, column) || !isValidPosition(toLine, toColumn)) {
             return false;
         }
 
-        // Ферзь не может оставаться на том же месте
         if (line == toLine && column == toColumn) {
             return false;
         }
 
-        // Проверяем, что ход либо диагональный, либо по прямой
         int deltaLine = Math.abs(line - toLine);
         int deltaColumn = Math.abs(column - toColumn);
+
         if (deltaLine == deltaColumn || line == toLine || column == toColumn) {
-            // Проверяем, что путь свободен
             return isPathClear(chessBoard, line, column, toLine, toColumn);
         }
 
         return false;
     }
 
-    // Метод возвращает символ фигуры
-    @Override
-    public String getSymbol() {
-        return "Q"; // Символ ферзя
-    }
-
-    // Проверяет, что путь свободен
+    /**
+     * Проверяет, что путь свободен
+     * @param chessBoard
+     * @param line
+     * @param column
+     * @param toLine
+     * @param toColumn
+     * @return
+     */
     private boolean isPathClear(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         int stepLine = Integer.compare(toLine, line);
         int stepColumn = Integer.compare(toColumn, column);
@@ -55,14 +54,25 @@ public class Queen extends ChessPiece {
         int currentColumn = column + stepColumn;
 
         while (currentLine != toLine || currentColumn != toColumn) {
+            if (currentLine == toLine && currentColumn == toColumn) {
+                break;
+            }
             if (chessBoard.board[currentLine][currentColumn] != null) {
-                return false; // Путь заблокирован
+                return false;
             }
             currentLine += stepLine;
             currentColumn += stepColumn;
         }
 
-        return true;
+        ChessPiece target = chessBoard.board[toLine][toColumn];
+        return target == null || !target.getColor().equals(this.color);
+    }
+
+
+    // Метод возвращает символ фигуры
+    @Override
+    public String getSymbol() {
+        return "Q"; // Символ ферзя
     }
 
     // Проверяет, что позиция на доске
